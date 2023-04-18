@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import {useAppStore} from "../store/index.js";
 import {inputNumbers, gameStatuses} from "../constants.js";
 import {arraysEqual} from "../helpers/index.js";
+import {put} from "@/lib/utils/api.js";
 
 
 const Main = ({index}) => {
     const status = useAppStore((state) => state.status)
     const health = useAppStore((state) => state.health)
     const score = useAppStore((state) => state.score)
+    const level = useAppStore((state) => state.level)
     const decreaseHealth = useAppStore((state) => state.decreaseHealth)
     const increaseLevel = useAppStore((state) => state.increaseLevel)
+    const authData = useAppStore((state) => state.authData)
     const digit = useAppStore((state) => state.digit)
     const numbers = useAppStore((state) => state.numbers)
     const increaseDigit = useAppStore((state) => state.increaseDigit)
@@ -21,7 +24,7 @@ const Main = ({index}) => {
     const [valueArr, setValueArr] = useState([])
 
 
-    const handleClickNumberBtn = (num) => {
+    const handleClickNumberBtn = async (num) => {
         if (status === gameStatuses.INPUTS_ON) {
             let newValueArr = valueArr
             newValueArr.push(num)
@@ -34,15 +37,16 @@ const Main = ({index}) => {
                     increaseDigit()
                     increaseScoreByDigit()
                     setValueArr([])
+                    await put("/"+authData.id,{...authData,level,score})
                 }else{
                     if(health !== 0){
                         decreaseHealth()
+                        setValueArr([])
                     }else{
                         resetAll()
                         alert("Your answer is wrong. You lost! Your score: "+score)
                     }
                 }
-                // Save to db here
             }else{
 
             }
@@ -66,7 +70,6 @@ const Main = ({index}) => {
                 </div>
                 <div className="text-white text-center text-2xl mb-2">
                     {valueArr}
-                    {status}
                 </div>
             </div>
 

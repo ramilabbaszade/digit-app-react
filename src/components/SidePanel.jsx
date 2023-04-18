@@ -29,7 +29,7 @@ const SidePanel = ({onStart}) => {
                     <div>Score</div>
                     <div>{score}</div>
                 </div>
-                <div onClick={isAuth ? onStart: ()=>{}} className={`${status === gameStatuses.READY_TO_START ? "bg-green-500":"bg-slate-500"} rounded p-6`}>
+                <div onClick={isAuth ? onStart: ()=>{}} className={`bg-green-500" rounded p-6`}>
                     <div>{isAuth ? `START | LEVEL:${level}`: "Login"}</div>
                 </div>
             </div>
