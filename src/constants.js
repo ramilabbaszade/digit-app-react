@@ -8,4 +8,4 @@ export const gameStatuses = {
     FAILED: "FAILED",
 }
 
-export const API_URL = "https://compleat-reproducti.000webhostapp.com/"
+export const API_URL = "https://compleat-reproducti.000webhostapp.com"

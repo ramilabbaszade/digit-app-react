@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useAppStore} from "../store/index.js";
-import {API_URL, gameStatuses} from "../constants.js";
+import {gameStatuses} from "../constants.js";
 import {get, post} from "@/lib/utils/api.js";
 
 function Login() {

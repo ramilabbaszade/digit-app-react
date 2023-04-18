@@ -1,10 +1,6 @@
-import {useCallback} from "react";
-import {useRandomNumberByDigit} from "../hooks/useRandomNumberByDigit.js";
-import {useAppStore} from "../store/index.js";
-import {gameStatuses} from "../constants.js";
+import {useAppStore} from "@/store/index.js";
 
 const SidePanel = ({onStart}) => {
-    const status = useAppStore((state) => state.status)
     const score = useAppStore((state) => state.score)
     const level = useAppStore((state) => state.level)
     const authData = useAppStore((state) => state.authData)
@@ -29,7 +25,7 @@ const SidePanel = ({onStart}) => {
                     <div>Score</div>
                     <div>{score}</div>
                 </div>
-                <div onClick={isAuth ? onStart: ()=>{}} className={`bg-green-500" rounded p-6`}>
+                <div onClick={isAuth ? onStart: ()=>{}} className={`bg-green-500 rounded p-6`}>
                     <div>{isAuth ? `START | LEVEL:${level}`: "Login"}</div>
                 </div>
             </div>
