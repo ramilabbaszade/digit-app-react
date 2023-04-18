@@ -1,6 +1,6 @@
 import {useState} from "react";
-import {useAppStore} from "../store/index.js";
-import {gameStatuses} from "../constants.js";
+import {useAppStore} from "@/store/index.js";
+import {gameStatuses} from "@/constants.js";
 import {get, post} from "@/lib/utils/api.js";
 
 function Login() {

@@ -1,5 +1,5 @@
 import {create} from 'zustand'
-import {gameStatuses} from "../constants.js";
+import {gameStatuses} from "@/constants.js";
 
 const defaultStates = {
     authData: {},

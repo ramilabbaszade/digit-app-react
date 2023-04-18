@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {useAppStore} from "../store/index.js";
-import {inputNumbers, gameStatuses} from "../constants.js";
-import {arraysEqual} from "../helpers/index.js";
+import {useAppStore} from "@/store/index.js";
+import {inputNumbers, gameStatuses} from "@/constants.js";
+import {arraysEqual} from "@/helpers/index.js";
 import {put} from "@/lib/utils/api.js";
 
 
@@ -37,7 +37,7 @@ const Main = ({index}) => {
                     increaseDigit()
                     increaseScoreByDigit()
                     setValueArr([])
-                    await put("/"+authData.id,{...authData,level,score})
+                    await put(`/${authData.id}`,{...authData,level,score})
                 }else{
                     if(health !== 0){
                         decreaseHealth()

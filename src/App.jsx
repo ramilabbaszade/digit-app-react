@@ -1,10 +1,10 @@
 import {useCallback, useState} from 'react'
 import {useRandomNumberByDigit} from "./hooks/useRandomNumberByDigit.js";
-import {useAppStore} from "./store/index.js";
-import Main from "./components/Main.jsx";
-import SidePanel from "./components/SidePanel.jsx";
-import {gameStatuses} from "./constants.js";
-import Login from "./components/Login.jsx";
+import {useAppStore} from "@/store/index.js";
+import Main from "@/components/Main.jsx";
+import SidePanel from "@/components/SidePanel.jsx";
+import {gameStatuses} from "@/constants.js";
+import Login from "@/components/Login.jsx";
 
 function App() {
     const status = useAppStore((state) => state.status)
